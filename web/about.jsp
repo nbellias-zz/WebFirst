@@ -39,6 +39,10 @@
             </tfoot>
         </table>
         <hr>
+        <form action="about.jsp" enctype="multipart/form-data">
+            <input type="file" name="myfilename"/>
+            <input type="submit" value="Upload"/>
+        </form>
         <ul>
             <li><a href="index.jsp">Home</a></li>
         </ul>
