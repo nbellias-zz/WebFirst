@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/WebFirst">
+    <Parameter name="file-upload" value="/home/nikolaos/data" override="false" />
+    <Parameter name="file-temp" value="/home/nikolaos/temp" override="false" />
+</Context>
