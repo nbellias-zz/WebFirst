@@ -30,7 +30,9 @@
             <p><input type="text" name="zipcode" placeholder="Your zipcode"/></p>
             <p><input type="text" name="city" placeholder="Your City"/></p>
             <p><input type="text" name="state" placeholder="Your State"/></p>
-            <p><input type="submit" name="btn1"/><input type="reset"/></p>
+
+            <p><input type="submit"/><input type="reset"/></p>
+
         </form>
         <h3><%@include file="myaction.jsp" %></h3>
         <ul>

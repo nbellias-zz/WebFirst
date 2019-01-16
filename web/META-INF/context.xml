@@ -2,7 +2,9 @@
 <Context path="/WebFirst">
     <Parameter name="file-upload" value="c:/opt/data" override="false" />
     <Parameter name="file-temp" value="c:/opt/temp" override="false" />
-    <Parameter name="urldb" value="jdbc:mysql://192.168.227.129:3306/nikolaosdb?characterEncoding=utf8;serverTimeZone=UTC" override="false" />;
+    <Parameter name="urldb" value="jdbc:mysql://192.168.227.129:3306/nikolaosdb?characterEncoding=utf8" override="false" />;
     <Parameter name="user" value="nikolaos" override="false" />
     <Parameter name="password" value="Sp#r0s1967!" override="false" />
 </Context>
+
+

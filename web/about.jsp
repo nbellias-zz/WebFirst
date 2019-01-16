@@ -39,6 +39,7 @@
             </tfoot>
         </table>
         <hr>
+
         <h3>Upload File Example</h3>
         <form action = "about.jsp" method = "post" enctype = "multipart/form-data">
             <input type="file" name="file"  size="50" />
@@ -46,6 +47,7 @@
             <input type="submit" value="Upload File" />
         </form>
         <h4><%@include file="upload.jsp" %></h4>
+
         <ul>
             <li><a href="index.jsp">Home</a></li>
         </ul>
