@@ -11,17 +11,17 @@
     } catch (Exception ex) {
         System.out.println("Could not find driver to MySQL Database!");
     }
-    String urldb = "jdbc:mysql://localhost:3306/nikolaosdb?characterEncoding=utf8";
-    String user = "nikolaos";
-    String password = "Sp#r0s1967!";
+    ServletContext context = pageContext.getServletContext();
+    String filePath = context.getInitParameter("file-upload");
+    String tempFilePath = context.getInitParameter("file-temp");
+    String urldb = context.getInitParameter("urldb");
+    String user = context.getInitParameter("user");
+    String password = context.getInitParameter("password");
 
     if (request.getMethod().equals("POST")) {
         File file;
         int maxFileSize = 5000 * 1024;
         int maxMemSize = 5000 * 1024;
-        ServletContext context = pageContext.getServletContext();
-        String filePath = context.getInitParameter("file-upload");
-        String tempFilePath = context.getInitParameter("file-temp");
 
         // Verify the content type
         String contentType = request.getContentType();
@@ -59,10 +59,9 @@
                         // Write the file
                         fi.write(new File(filePath + "/" + fileName));
                         out.print("<p>Uploaded Filename: " + filePath + "/" + fileName + "</p>");
+
                         // SAVE TO DATABASE
-
                         Connection conn = null;
-
                         try {
                             conn = DriverManager.getConnection(urldb, user, password);
                             String insertSQL = "INSERT INTO picture (pic_name, pic_file) VALUES (?,?)";
@@ -122,9 +121,7 @@
             while (rs.next()) {
                 String fname = rs.getString("pic_name");
                 InputStream ffile = rs.getBinaryStream("pic_file");
-//                OutputStream output = response.getOutputStream();
-                //response.setContentType("image/gif");
-                out.print("<tr><td>" + fname + "</td><td><img src=\"" + ffile + "\"/></td></tr>");
+                out.print("<tr><td>" + fname + "</td><td><img src=\"" + ffile.readAllBytes() + "\"/></td></tr>");
             };
         %>
     </tbody>
